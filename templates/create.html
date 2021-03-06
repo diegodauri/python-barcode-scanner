@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create barcode</title>
+</head>
+<body>
+    <h1>Welcome to the barcode creator!</h1>
+    <p>Start by typing a value in the box below!</p>
+     {% with messages = get_flashed_messages() %}
+    {% if messages %}
+         <ul class=flashes>
+    {% for message in messages %}
+        <li style="color: red;">{{ message }}</li>
+    {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('generate') }}" method="post">
+        <input type="text" name="value">
+        <input type="submit">
+    </form>
+</body>
+</html>
